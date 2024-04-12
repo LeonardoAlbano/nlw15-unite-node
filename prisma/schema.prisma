@@ -13,8 +13,8 @@ datasource db {
 // Nome da tabela 'Event'
 model Event {
 
-  // Gerando um valor unico para cada ID
-  id                String @id @default(uuid())
+  
+  id                String @id @default(uuid()) // Gerando um valor unico para cada ID
   title             String
   details           String?                          //Campo com ? é opcional
   slug              String @unique                  //Representação de titulo na url
