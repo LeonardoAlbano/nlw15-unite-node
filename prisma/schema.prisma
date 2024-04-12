@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Nome da tabela 'Event'
+model Event {
+
+  // Gerando um valor unico para cada ID
+  id                String @id @default(uuid())
+  title             String
+  details           String?                          //Campo com ? é opcional
+  slug              String @unique                  //Representação de titulo na url
+  maximiumAttendees Int? @map("maximum_attendees")
+
+  //Renomeando o nome na tabela dentro do DB
+  @@map("events")
+}
