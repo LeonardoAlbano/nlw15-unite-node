@@ -10,16 +10,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Nome da tabela 'Event'
+
+// Tabela que gerencia eventos
 model Event {
-
-  
-  id                String @id @default(uuid()) // Gerando um valor unico para cada ID
+  id                String @id @default(uuid())
   title             String
-  details           String?                          //Campo com ? é opcional
-  slug              String @unique                  //Representação de titulo na url
-  maximiumAttendees Int? @map("maximum_attendees")
+  details           String?
+  slug              String @unique
+  maximumAttendees  Int? @map("maximum_attendees")
 
-  //Renomeando o nome na tabela dentro do DB
+  attendees Attendee[]
+
   @@map("events")
+}
+
+model Attendee {
+  id Int @id @default(autoincrement()) // Cada participante precisa de um código qrcode separado
+  name String
+  email String
+  createdAt DateTime @default(now()) @map("created_at")
+  eventId String @map("event_id")
+
+  event Event @relation(fields: [eventId], references: [id])
+
+  @@unique([eventId, email])
+  @@map("attendees")
 }

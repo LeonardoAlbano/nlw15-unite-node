@@ -2,7 +2,17 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-    "title": "Pablo event",
-    "details": "Um eventos para desenvolvedores",
-    "maximumAttendees": 10
+    "title": "Alibaba",
+    "details": "dsdsds ds ",
+    "maximumAttendees": 105
+}
+
+###
+
+POST http://localhost:3333/events/98ec536a-fd02-4411-8659-d9b2ed00ff80/attendees
+Content-Type: application/json
+
+{
+    "name": "Leonardo Albano",
+    "email": "leonardoalbanom@gmail.com"
 }
