@@ -2,17 +2,26 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-    "title": "Alibaba",
-    "details": "dsdsds ds ",
-    "maximumAttendees": 105
+    "title": "Novo event2",
+    "details": null,
+    "maximumAttendees":2
 }
 
 ###
 
-POST http://localhost:3333/events/98ec536a-fd02-4411-8659-d9b2ed00ff80/attendees
+POST http://localhost:3333/events/f8d84298-79f7-4a01-9579-a93d7fd8a2e6/attendees
 Content-Type: application/json
 
 {
     "name": "Leonardo Albano",
-    "email": "leonardoalbanom@gmail.com"
+    "email": "leonardoaldba2no2m@gmail.com"
 }
+
+###
+
+GET http://localhost:3333/events/f8d84298-79f7-4a01-9579-a93d7fd8a2e6
+
+
+###
+
+GET http://localhost:3333/attendees/1/badge
