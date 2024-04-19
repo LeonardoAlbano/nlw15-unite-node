@@ -25,11 +25,11 @@ model Event {
 }
 
 model Attendee {
-  id Int @id @default(autoincrement()) // Cada participante precisa de um código qrcode separado
-  name String
-  email String
-  createdAt DateTime @default(now()) @map("created_at")
-  eventId String @map("event_id")
+  id                Int @id @default(autoincrement()) // Cada participante precisa de um código qrcode separado
+  name              String
+  email             String
+  createdAt         DateTime @default(now()) @map("created_at")
+  eventId           String @map("event_id")
 
   event Event @relation(fields: [eventId], references: [id])
 
